@@ -8,11 +8,12 @@
     <artifactId>geewaza-mango</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <modules>
-        <module>mango-starter</module>
-        <module>mango-web</module>
+        <module>mango-common</module>
+        <module>mango-repository</module>
         <module>mango-facade</module>
         <module>mango-business</module>
-        <module>mango-repository</module>
+        <module>mango-web</module>
+        <module>mango-starter</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -24,6 +25,7 @@
         <spring-boot.version>2.3.0.RELEASE</spring-boot.version>
         <camel.version>3.7.0</camel.version>
         <okhttp3.version>3.14.9</okhttp3.version>
+        <fastjson.version>1.2.75</fastjson.version>
         <knife4j.version>2.0.7</knife4j.version>
         <powermock.version>2.0.5</powermock.version>
         <nacos.version>0.2.10</nacos.version>
@@ -61,6 +63,11 @@
                 <artifactId>mango-repository</artifactId>
                 <version>${app.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.geewaza.code.mango</groupId>
+                <artifactId>mango-common</artifactId>
+                <version>${app.version}</version>
+            </dependency>
             <!-- geewaza-mango -->
 
             <dependency>
@@ -70,12 +77,24 @@
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
+            <!-- alibaba druid -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>1.1.23</version>
+            </dependency>
 
             <!-- knife4j -->
             <dependency>
                 <groupId>com.github.xiaoymin</groupId>
                 <artifactId>knife4j-spring-boot-starter</artifactId>
                 <version>${knife4j.version}</version>
+            </dependency>
+            <!-- guava -->
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>20.0</version>
             </dependency>
 
             <dependency>
@@ -87,6 +106,39 @@
                 <groupId>commons-io</groupId>
                 <artifactId>commons-io</artifactId>
                 <version>2.6</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.10</version>
+            </dependency>
+            <!-- fastjson -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+            <!-- mybatis-plus -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>3.3.1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>2.1.4</version>
+            </dependency>
+            <!-- mybatis-plus-generator -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-generator</artifactId>
+                <version>3.3.1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-core</artifactId>
+                <version>1.3.6</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

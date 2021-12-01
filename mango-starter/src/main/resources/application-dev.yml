@@ -2,7 +2,27 @@ spring:
   datasource:
     # 数据源名称
     name: mangoDataSource
+    type: com.alibaba.druid.pool.DruidDataSource
     username: mango
     password: qwer@1234
     url: jdbc:mysql://192.168.10.10:3306/mango?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=UTF-8
     driver-class-name: com.mysql.cj.jdbc.Driver
+    druid:
+      # 扩展插件：stat监控统计，wall防SQL注入等
+      filters: stat,wall
+#      connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+#      use-global-data-source-stat: true
+#      web-stat-filter:
+#        # 是否启用统计监控，可进行添加配置进行详细控制
+#        enabled: true
+#      stat-view-servlet:
+#        # 开启监控页面
+#        enabled: true
+#        # 页面登录账号密码
+#        login-username: test
+#        login-password: test
+#        # 运行访问的白名单，不设置任何可访问，必须配置。如不配置只可单机访问
+#        allow:
+#        # 黑名单
+#        deny:
+
