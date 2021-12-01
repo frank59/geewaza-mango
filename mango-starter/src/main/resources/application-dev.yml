@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    # 数据源名称
+    name: mangoDataSource
+    username: mango
+    password: qwer@1234
+    url: jdbc:mysql://192.168.10.10:3306/mango?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=UTF-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
