@@ -4,9 +4,16 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.geewaza.code.geewaza.mango</groupId>
+    <groupId>com.geewaza.code.mango</groupId>
     <artifactId>geewaza-mango</artifactId>
     <version>1.0.0-SNAPSHOT</version>
+    <modules>
+        <module>mango-starter</module>
+        <module>mango-web</module>
+        <module>mango-facade</module>
+        <module>mango-business</module>
+        <module>mango-repository</module>
+    </modules>
     <packaging>pom</packaging>
 
 
@@ -28,6 +35,33 @@
 
     <dependencyManagement>
         <dependencies>
+            <!-- geewaza-mango -->
+            <dependency>
+                <groupId>com.geewaza.code.mango</groupId>
+                <artifactId>mango-starter</artifactId>
+                <version>${app.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.geewaza.code.mango</groupId>
+                <artifactId>mango-facade</artifactId>
+                <version>${app.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.geewaza.code.mango</groupId>
+                <artifactId>mango-business</artifactId>
+                <version>${app.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.geewaza.code.mango</groupId>
+                <artifactId>mango-web</artifactId>
+                <version>${app.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.geewaza.code.mango</groupId>
+                <artifactId>mango-repository</artifactId>
+                <version>${app.version}</version>
+            </dependency>
+            <!-- geewaza-mango -->
 
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -37,6 +71,23 @@
                 <type>pom</type>
             </dependency>
 
+            <!-- knife4j -->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>1.18.12</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>2.6</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -70,4 +121,19 @@
             </plugins>
         </pluginManagement>
     </build>
+    <!-- 代码库 -->
+    <repositories>
+        <repository>
+            <id>maven-ali</id>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+                <checksumPolicy>fail</checksumPolicy>
+            </snapshots>
+        </repository>
+    </repositories>
 </project>
