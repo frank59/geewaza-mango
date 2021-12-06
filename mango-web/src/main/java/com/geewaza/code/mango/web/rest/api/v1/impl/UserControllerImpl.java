@@ -1,9 +1,9 @@
 package com.geewaza.code.mango.web.rest.api.v1.impl;
 
-import com.geewaza.code.mango.facade.SysUserService;
+import com.geewaza.code.mango.facade.UserService;
 import com.geewaza.code.mango.facade.response.ServiceResponse;
-import com.geewaza.code.mango.facade.vo.SysUserVO;
-import com.geewaza.code.mango.web.rest.api.v1.SysUserController;
+import com.geewaza.code.mango.facade.vo.UserVO;
+import com.geewaza.code.mango.web.rest.api.v1.UserController;
 import com.geewaza.code.mango.web.rest.common.ServiceProcessTemplate;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,12 +16,12 @@ import java.util.List;
  * @date : 2021-12-02 01:16
  **/
 @RestController
-public class SysUserControllerImpl implements SysUserController {
+public class UserControllerImpl implements UserController {
 
-    private final SysUserService sysUserService;
+    private final UserService userService;
 
-    public SysUserControllerImpl(SysUserService sysUserService) {
-        this.sysUserService = sysUserService;
+    public UserControllerImpl(UserService userService) {
+        this.userService = userService;
     }
 
     /**
@@ -30,8 +30,8 @@ public class SysUserControllerImpl implements SysUserController {
      * @return
      */
     @Override
-    public ServiceResponse<List<SysUserVO>> findAll() {
-        return new ServiceProcessTemplate<List<SysUserVO>>() {
+    public ServiceResponse<List<UserVO>> findAll() {
+        return new ServiceProcessTemplate<List<UserVO>>() {
 
             /**
              * 业务逻辑
@@ -40,8 +40,8 @@ public class SysUserControllerImpl implements SysUserController {
              * @throws Exception 业务异常
              */
             @Override
-            public List<SysUserVO> doService() throws Exception {
-                return sysUserService.findAll();
+            public List<UserVO> doService() throws Exception {
+                return userService.findAll();
             }
         }.process();
     }

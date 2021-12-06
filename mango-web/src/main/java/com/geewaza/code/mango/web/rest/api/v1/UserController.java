@@ -1,7 +1,7 @@
 package com.geewaza.code.mango.web.rest.api.v1;
 
 import com.geewaza.code.mango.facade.response.ServiceResponse;
-import com.geewaza.code.mango.facade.vo.SysUserVO;
+import com.geewaza.code.mango.facade.vo.UserVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +17,7 @@ import java.util.List;
  **/
 @Api(tags = "服务器信息接口")
 @RequestMapping("/api/v1/user")
-public interface SysUserController {
+public interface UserController {
 
     /**
      * 获取全部用户
@@ -25,6 +25,6 @@ public interface SysUserController {
      */
     @GetMapping("/findAll")
     @ApiOperation("获取所有用户")
-    ServiceResponse<List<SysUserVO>> findAll();
+    ServiceResponse<List<UserVO>> findAll();
 
 }

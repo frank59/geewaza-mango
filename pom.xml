@@ -6,7 +6,7 @@
 
     <groupId>com.geewaza.code.mango</groupId>
     <artifactId>geewaza-mango</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>${app.version}</version>
     <modules>
         <module>mango-common</module>
         <module>mango-repository</module>
@@ -86,6 +86,11 @@
 
             <!-- knife4j -->
             <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-annotations</artifactId>
+                <version>1.5.22</version>
+            </dependency>
+            <dependency>
                 <groupId>com.github.xiaoymin</groupId>
                 <artifactId>knife4j-spring-boot-starter</artifactId>
                 <version>${knife4j.version}</version>
@@ -140,10 +145,43 @@
                 <artifactId>mybatis-generator-core</artifactId>
                 <version>1.3.6</version>
             </dependency>
+            <dependency>
+                <groupId>com.github.axet</groupId>
+                <artifactId>kaptcha</artifactId>
+                <version>0.0.9</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
     <build>
+        <!-- 解决父pom版本号占位符的问题 -->
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>flatten-maven-plugin</artifactId>
+                <version>1.1.0</version>
+                <configuration>
+                    <updatePomFile>true</updatePomFile>
+                    <flattenMode>oss</flattenMode>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>flatten</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>flatten</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>flatten.clean</id>
+                        <phase>clean</phase>
+                        <goals>
+                            <goal>clean</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
         <pluginManagement>
             <plugins>
                 <plugin>

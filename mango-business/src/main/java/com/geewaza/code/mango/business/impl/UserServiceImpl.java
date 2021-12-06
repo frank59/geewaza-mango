@@ -1,8 +1,8 @@
 package com.geewaza.code.mango.business.impl;
 
-import com.geewaza.code.mango.business.converter.SysUserVOConverter;
-import com.geewaza.code.mango.facade.SysUserService;
-import com.geewaza.code.mango.facade.vo.SysUserVO;
+import com.geewaza.code.mango.business.converter.UserVOConverter;
+import com.geewaza.code.mango.facade.UserService;
+import com.geewaza.code.mango.facade.vo.UserVO;
 import com.geewaza.code.mango.repository.dao.auto.repository.SysUserRepository;
 import org.springframework.stereotype.Service;
 
@@ -16,11 +16,11 @@ import java.util.stream.Collectors;
  * @date : 2021-12-02 01:01
  **/
 @Service
-public class SysUserServiceImpl implements SysUserService {
+public class UserServiceImpl implements UserService {
 
     private final SysUserRepository sysUserRepository;
 
-    public SysUserServiceImpl(SysUserRepository sysUserRepository) {
+    public UserServiceImpl(SysUserRepository sysUserRepository) {
         this.sysUserRepository = sysUserRepository;
     }
 
@@ -30,7 +30,7 @@ public class SysUserServiceImpl implements SysUserService {
      * @return
      */
     @Override
-    public List<SysUserVO> findAll() {
-        return sysUserRepository.list().stream().map(SysUserVOConverter::convert).collect(Collectors.toList());
+    public List<UserVO> findAll() {
+        return sysUserRepository.list().stream().map(UserVOConverter::convert).collect(Collectors.toList());
     }
 }

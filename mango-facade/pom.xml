@@ -5,7 +5,7 @@
     <parent>
         <artifactId>geewaza-mango</artifactId>
         <groupId>com.geewaza.code.mango</groupId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>${app.version}</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -16,6 +16,10 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-annotations</artifactId>
         </dependency>
     </dependencies>
 </project>
